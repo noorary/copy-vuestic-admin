@@ -1,4 +1,4 @@
-const apiBaseUrl = import.meta.env.VITE_API_BASE_URL
+const apiBaseUrl = 'http://localhost:3000'
 
 export default {
   allUsers: () => `${apiBaseUrl}/users`,
