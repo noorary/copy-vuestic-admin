@@ -1,4 +1,5 @@
 // IMPORTANT! These tests are intentionally designed with potentially fragile locators.
+import 'cypress-xpath'
 
 describe('Projects page', () => {
   beforeEach(() => {
