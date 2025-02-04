@@ -22,7 +22,6 @@ describe('Projects page', () => {
   // Using class name as a locator '[class="va-h4 text-center self-stretch overflow-hidden line-clamp-2 text-ellipsis"]'
   it('1.1. successfully opens projects as cards', () => {
     cy.contains('Cards').click()
-    debugger
     cy.get('[class="va-h4 text-center self-stretch overflow-hidden line-clamp-2 text-ellipsis"]')
       .first()
       .should('contain', 'Vuestic')

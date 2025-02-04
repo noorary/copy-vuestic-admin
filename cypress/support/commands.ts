@@ -35,3 +35,11 @@
 //     }
 //   }
 // }
+
+Cypress.Commands.add('getByLocator', (locator: string, ...args: any[]) => {
+  return cy.get(`[data-cy=${locator}]`, ...args)
+})
+
+Cypress.Commands.add('getByAriaLabel', (locator: string, ...args: any[]) => {
+  return cy.get(`[aria-label="${locator}"]`, ...args)
+})

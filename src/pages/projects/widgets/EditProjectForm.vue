@@ -66,7 +66,12 @@ const teamFiltersSearch = ref('')
 
 <template>
   <VaForm v-slot="{ validate }" class="flex flex-col gap-2">
-    <VaInput v-model="newProject.project_name" label="Project name" :rules="[required]" />
+    <VaInput
+      v-model="newProject.project_name"
+      label="Project name"
+      :rules="[required]"
+      :input-attr="{ 'data-cy': 'project-name-input' }"
+    />
     <VaSelect
       v-model="newProject.project_owner"
       v-model:search="ownerFiltersSearch"
@@ -124,8 +129,12 @@ const teamFiltersSearch = ref('')
       </template>
     </VaSelect>
     <div class="flex justify-end flex-col-reverse sm:flex-row mt-4 gap-2">
-      <VaButton preset="secondary" color="secondary" @click="$emit('close')">Cancel</VaButton>
-      <VaButton @click="validate() && $emit('save', newProject as Project)">{{ saveButtonLabel }}</VaButton>
+      <VaButton preset="secondary" color="secondary" data-cy="close-editing-button" @click="$emit('close')"
+        >Cancel</VaButton
+      >
+      <VaButton data-cy="save-project-button" @click="validate() && $emit('save', newProject as Project)">{{
+        saveButtonLabel
+      }}</VaButton>
     </div>
   </VaForm>
 </template>

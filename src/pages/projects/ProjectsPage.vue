@@ -99,16 +99,23 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
   <VaCard>
     <VaCardContent>
       <div class="flex flex-col md:flex-row gap-2 mb-2 justify-between">
-        <div class="flex flex-col md:flex-row gap-2 justify-start">
-          <VaButtonToggle
-            v-model="doShowAsCards"
-            color="background-element"
-            border-color="background-element"
-            :options="[
-              { label: 'Cards', value: true },
-              { label: 'Table', value: false },
-            ]"
-          />
+        <div class="flex flex-row gap-2 justify-start items-center">
+          <VaButton
+            :color="doShowAsCards ? 'primary' : 'secondary'"
+            data-cy="cards-option"
+            small
+            @click="doShowAsCards = true"
+          >
+            Cards
+          </VaButton>
+          <VaButton
+            :color="!doShowAsCards ? 'primary' : 'secondary'"
+            data-cy="table-option"
+            small
+            @click="doShowAsCards = false"
+          >
+            Table
+          </VaButton>
         </div>
         <VaButton icon="add" @click="createNewProject">Project</VaButton>
       </div>
