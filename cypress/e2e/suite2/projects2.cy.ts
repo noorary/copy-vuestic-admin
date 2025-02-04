@@ -21,11 +21,11 @@ describe('Projects page', () => {
     cy.getByLocator('cards-option').click()
     cy.getByLocator('card-project-name').should('contain', 'Vuestic')
   })
-  it.skip('2.2. successfully opens a table of projects', () => {
+  it('2.2. successfully opens a table of projects', () => {
     cy.getByLocator('table-option').click()
     cy.contains('8 results')
   })
-  it.skip('2.3. contains a project in the table', () => {
+  it('2.3. contains a project in the table', () => {
     cy.getByLocator('table-option').click()
     cy.getByLocator('project-name').first().should('contain', 'Vuestic')
     cy.getByLocator('project-creation-date').first().should('contain', '20/11/2023')
