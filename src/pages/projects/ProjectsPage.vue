@@ -117,7 +117,7 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
             Table
           </VaButton>
         </div>
-        <VaButton icon="add" @click="createNewProject">Project</VaButton>
+        <VaButton icon="add" data-cy="add-project-button" @click="createNewProject">Project</VaButton>
       </div>
 
       <ProjectCards

@@ -4,7 +4,7 @@ describe('Projects page', () => {
   const projectsPage = new ProjectsPage()
 
   beforeEach(() => {
-    projectsPage.resetProject()
+    projectsPage.resetFirstProjectName()
     projectsPage.visit()
   })
 

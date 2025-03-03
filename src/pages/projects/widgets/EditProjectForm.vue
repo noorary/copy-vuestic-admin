@@ -84,7 +84,7 @@ const teamFiltersSearch = ref('')
       :options="usersStore.items"
     >
       <template #content="{ value: user }">
-        <div v-if="user" :key="user.id" class="flex items-center gap-1 mr-4">
+        <div v-if="user" :key="user.id" class="flex items-center gap-1 mr-4" :data-cy="'option-' + user.id">
           <UserAvatar v-if="false" :user="user" size="18px" />
           {{ user.fullname }}
         </div>

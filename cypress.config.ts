@@ -6,5 +6,9 @@ export default defineConfig({
     //   // implement node event listeners here
     // },
     baseUrl: 'http://localhost:5173',
+    excludeSpecPattern: ['**/node_modules/**'],
+    env: {
+      apiUrl: 'http://localhost:3000',
+    },
   },
 })

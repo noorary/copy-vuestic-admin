@@ -67,7 +67,11 @@ const { getUserById, getTeamOptions } = inject<any>('ProjectsPage')
         </div>
       </template>
       <template #cell(project_owner)="{ rowData }">
-        <div v-if="getUserById(rowData.project_owner)" class="flex items-center gap-2 ellipsis max-w-[230px]">
+        <div
+          v-if="getUserById(rowData.project_owner)"
+          class="flex items-center gap-2 ellipsis max-w-[230px]"
+          data-cy="project-owner-name"
+        >
           <UserAvatar :user="getUserById(rowData.project_owner)" size="small" />
           {{ getUserById(rowData.project_owner).fullname }}
         </div>
@@ -102,6 +106,7 @@ const { getUserById, getTeamOptions } = inject<any>('ProjectsPage')
             icon="mso-delete"
             color="danger"
             aria-label="Delete project"
+            data-cy="delete-project-button"
             @click="$emit('delete', project as Project)"
           />
         </div>
