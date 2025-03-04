@@ -7,7 +7,6 @@ describe('Projects page', () => {
 
   beforeEach(() => {
     cy.fixture('projects.json').as('projectsData')
-    cy.intercept('GET', `${Cypress.env('apiUrl')}/projects`, { fixture: 'projects.json' }).as('getProjects')
     let interceptCount = 0
     cy.intercept('GET', `${Cypress.env('apiUrl')}/projects`, (req) => {
       req.reply((res) => {
