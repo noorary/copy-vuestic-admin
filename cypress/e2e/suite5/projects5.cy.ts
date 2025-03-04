@@ -8,6 +8,17 @@ describe('Projects page', () => {
   beforeEach(() => {
     cy.fixture('projects.json').as('projectsData')
     cy.intercept('GET', `${Cypress.env('apiUrl')}/projects`, { fixture: 'projects.json' }).as('getProjects')
+    let interceptCount = 0
+    cy.intercept('GET', `${Cypress.env('apiUrl')}/projects`, (req) => {
+      req.reply((res) => {
+        if (interceptCount === 0) {
+          interceptCount += 1
+          res.send({ fixture: 'projects.json' })
+        } else {
+          res.send({ fixture: 'projects2.json' })
+        }
+      })
+    })
     cy.fixture('users.json').as('usersData')
     cy.intercept('GET', `${Cypress.env('apiUrl')}/users`, { fixture: 'users.json' }).as('getUsers')
     projectsPage.visit()
@@ -80,19 +91,11 @@ describe('Projects page', () => {
     })
   })
 
-  // TODO IN PROGRESS
-  it.skip('5.6. allows a project to be deleted', () => {
+  it('5.6. allows a project to be deleted', () => {
     cy.intercept('DELETE', `${Cypress.env('apiUrl')}/projects/${vuesticProjectId}`, {
       statusCode: 200,
       body: {},
     }).as('deleteProject')
-    cy.fixture('projects.json').then((projects) => {
-      const updatedProjects = projects.filter((project) => project.project_name !== 'Vuestic')
-      cy.intercept('GET', `${Cypress.env('apiUrl')}/projects`, {
-        statusCode: 200,
-        body: updatedProjects,
-      }).as('getUpdatedProjects')
-    })
 
     projectsPage.visit()
     projectsPage.clickTableButton()

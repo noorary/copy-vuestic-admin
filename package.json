@@ -13,7 +13,9 @@
     "format": "prettier --write .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "cypress:open": "npx cypress open --browser chrome --e2e",
+    "cypress:runts4": "npx cypress run --headed --spec 'cypress/e2e/suite4/projects4.cy.ts'"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,vue}": [
