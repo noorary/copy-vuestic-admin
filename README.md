@@ -1,4 +1,4 @@
-Note! This repository contains changes made to the Vuestic Admin application as a part of my thesis research. Original Vuestic Admin repository can be found [here](https://github.com/epicmaxco/vuestic-admin)
+Note! This repository contains Cypress E2E tests and changes made to the Vuestic Admin application as a part of my thesis research. Original Vuestic Admin repository can be found [here](https://github.com/epicmaxco/vuestic-admin)
 
 -------------------
 
